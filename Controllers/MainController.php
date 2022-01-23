@@ -7,7 +7,6 @@ class MainController extends App
     protected $view;
     protected $model;
     protected $logs;
-    protected $error;
 
     public function __construct()
     {
