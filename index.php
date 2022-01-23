@@ -19,16 +19,7 @@ include_once SYSTEM_DIR.'App.php';
  */
 include_once 'vendor/autoload.php';
 /** 
- * Init App
+ * Init and application
  */
 $App = new App;
-$index = $App->init();
-/**
- * Run main app
- */
-$run = $App->run(
-    $index['router']['controller'],
-    $index['router']['action'],
-    params:$index['router']['params'],
-    data:$index['data'],
-);
+$App->run();

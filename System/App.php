@@ -5,15 +5,13 @@
 class App 
 {
     private $data = [];
+    private $router = [];
 
-    public function init()
+    public function __construct()
     {
         Dotenv\Dotenv::createImmutable(PRIVATE_DIR, DOTENV)->safeLoad();
-        $index = [];
-        $index['router'] = $this->load('libs', 'router');
+        $this->router = $this->load('libs', 'router');
         $this->stdin();
-        $index['data'] = $this->data;
-        return $index;
     }
 
     public function load($kind, $file)
@@ -34,14 +32,13 @@ class App
 
     }
 
-    public function run($controller, $action, $params=false, $data=false)
+    public function run()
     {
         include_once CONTROLLERS.'MainController.php';
-        include_once CONTROLLERS.$controller.'Controller.php';
-        $controller = new $controller;
-        $data['params'] = $params;
-        $data['data'] = $data;
-        return call_user_func_array(array($controller,$action),array($data));
+        include_once CONTROLLERS.$this->router['controller'].'Controller.php';
+        $class = new $this->router['controller'];
+        $action = $this->router['action'];
+        $class->$action($this->data);
     }
 
     public function format($format)
