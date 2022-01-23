@@ -6,6 +6,7 @@ class App
 {
     private $data = [];
     private $router = [];
+    protected $error;
 
     public function __construct()
     {
