@@ -12,6 +12,7 @@ class App
         Dotenv\Dotenv::createImmutable(PRIVATE_DIR, DOTENV)->safeLoad();
         $this->router = $this->load('libs', 'router');
         $this->stdin();
+        if (DEBUG) $this->error = $this->load('libs', 'error');
     }
 
     public function load($kind, $file)

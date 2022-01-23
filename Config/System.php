@@ -15,3 +15,4 @@ define('CONFIG_DIR','Config/');
 define('LOG_FILE', PRIVATE_DIR.'log.log');
 define('LIBS_DIR', 'Libs/');
 define('DOTENV', '.env');
+define('DEBUG', true);

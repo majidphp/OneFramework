@@ -46,5 +46,12 @@ class Libraries
         $smarty->compile_dir = 'Views/template_c';
         return $smarty;
     }
+
+    public static function error()
+    {
+        $whoops = new \Whoops\Run;
+        $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+        $whoops->register();
+    }
     
 }

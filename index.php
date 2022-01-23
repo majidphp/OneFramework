@@ -1,10 +1,6 @@
 <?php
 session_start();
 /**
- * Show errors for debugging
- */
-ini_set('display_errors','On');
-/**
  * Load config files
  */
 foreach(glob("Config/*.php") as $file){
@@ -22,4 +18,7 @@ include_once 'vendor/autoload.php';
  * Init and application
  */
 $App = new App;
+/**
+ * Run application
+ */
 $App->run();
