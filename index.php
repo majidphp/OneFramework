@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 /**
  * Show errors for debugging
@@ -22,7 +22,7 @@ include_once 'vendor/autoload.php';
  * Init App
  */
 $App = new App;
-$index = $App->init(json_decode(file_get_contents('php://input'), true));
+$index = $App->init();
 /**
  * Run main app
  */

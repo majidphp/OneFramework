@@ -4,17 +4,15 @@
  */
 class App 
 {
-    public function init($data = null)
+    private $data = [];
+
+    public function init()
     {
         Dotenv\Dotenv::createImmutable(PRIVATE_DIR, DOTENV)->safeLoad();
         $index = [];
         $index['router'] = $this->load('libs', 'router');
-        if($data) {
-            $data = $this->security($data);
-        } else {
-            $data = null;
-        }
-        $index['data'] = $data;
+        $this->stdin();
+        $index['data'] = $this->data;
         return $index;
     }
 
@@ -122,6 +120,15 @@ class App
             return $res;
         }
 
+    }
+
+    private function stdin()
+    {
+        if ($_GET) $this->data['get'] = $this->security($_GET);
+        if ($_POST) $this->data['post'] = $this->security($_POST);
+        if (file_get_contents('php://input')) {
+            $this->data['raw'] = $this->security(json_decode(file_get_contents('php://input'), true));
+        }
     }
 
 }
