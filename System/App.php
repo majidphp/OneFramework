@@ -28,15 +28,18 @@ class App
                 $model = $file.'Model';
                 return new $model;
                 break;
+            case 'controller':
+                include_once CONTROLLERS.'MainController.php';
+                include_once CONTROLLERS.$this->router['controller'].'Controller.php';
+                return new $file;
+                break;
         }
 
     }
 
     public function run()
     {
-        include_once CONTROLLERS.'MainController.php';
-        include_once CONTROLLERS.$this->router['controller'].'Controller.php';
-        $class = new $this->router['controller'];
+        $class = $this->load('controller', $this->router['controller']);
         $action = $this->router['action'];
         $class->$action($this->data);
     }
