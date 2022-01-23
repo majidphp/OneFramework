@@ -72,15 +72,6 @@ class App
         }
     }
 
-    public function get_gets($getItem = 'ALL')
-    {
-        if($getItem != 'ALL') { 
-            return $this->gets[$getItem];
-        } else {
-            return $this->gets;
-        }
-    }
-
     private function security($data)
     {
         if(is_array ($data)) {
