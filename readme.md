@@ -7,7 +7,7 @@
 
 To use this framework
 - import db file `Private/frameqork.sql`
-- change database values in this file `Private/.env`
+- change database values in this file `Private/.env` and `Config/Database.php`
 - make this folder `Views/template_c`
 - add permition 777 to this folder `Views/template_c`
 - run `composer install`
