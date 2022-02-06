@@ -13,6 +13,7 @@ define('PUBLIC_DIR', ROOT.'/Public/');
 define('PRIVATE_DIR', ROOT.'/Private/');
 define('CONFIG_DIR','Config/');
 define('LOG_FILE', PRIVATE_DIR.'log.log');
+define('LOG_NAME',' framework');
 define('LIBS_DIR', 'Libs/');
 define('DOTENV', '.env');
 define('DEBUG', true);

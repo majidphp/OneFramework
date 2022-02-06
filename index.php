@@ -18,6 +18,7 @@ include_once 'vendor/autoload.php';
  * Init and application
  */
 $App = new App;
+$App->init();
 /**
  * Run application
  */

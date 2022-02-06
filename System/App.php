@@ -6,14 +6,13 @@ class App
 {
     private $data = [];
     private $router = [];
-    protected $error;
 
-    public function __construct()
+    public function init()
     {
         Dotenv\Dotenv::createImmutable(PRIVATE_DIR, DOTENV)->safeLoad();
         $this->router = $this->load('libs', 'router');
         $this->stdin();
-        if (DEBUG) $this->error = $this->load('libs', 'error');
+        if (DEBUG) $this->load('libs', 'error');
     }
 
     public function load($kind, $file)
@@ -25,7 +24,6 @@ class App
                 break;
             case 'model':
                 include_once MODELS_DIR.'MainModel.php';
-                new MainModel;
                 include_once MODELS_DIR.$file.'Model.php';
                 $model = $file.'Model';
                 return new $model;
