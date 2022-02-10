@@ -7,9 +7,11 @@ class MainController extends App
     protected $view;
     protected $model;
     protected $log;
+    protected $errorMsg;
 
     public function __construct()
     {
+        $this->errorMsg = ErrorMsgs();
         $log = new Logger(LOG_NAME);
         $log->pushHandler(new StreamHandler(LOG_FILE, Logger::DEBUG));
         $this->log = $log;
