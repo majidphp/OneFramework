@@ -4,6 +4,7 @@ use Monolog\Handler\StreamHandler;
 
 class MainController extends App
 {
+    protected $data;
     protected $view;
     protected $model;
     protected $log;
@@ -16,6 +17,11 @@ class MainController extends App
         $log->pushHandler(new StreamHandler(LOG_FILE, Logger::DEBUG));
         $this->log = $log;
         $this->view = $this->load('libs', 'smarty');
+    }
+
+    public function setData($data)
+    {
+        $this->data = $data;
     }
 
     protected function redirect($address)

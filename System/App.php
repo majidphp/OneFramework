@@ -41,7 +41,8 @@ class App
     {
         $class = $this->load('controller', $this->router['controller']);
         $action = $this->router['action'];
-        $class->$action($this->data);
+        $class->setData($this->data);
+        $class->$action();
     }
 
     public function format($format)
