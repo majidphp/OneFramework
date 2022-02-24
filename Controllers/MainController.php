@@ -33,9 +33,4 @@ class MainController extends App
         return true;
     }
 
-    private function logInit($logName)
-    {
-        $this->logs = new Logger($logName);
-        $this->logs->pushHandler(new StreamHandler(LOG_FILE, Logger::DEBUG));
-    }
 }

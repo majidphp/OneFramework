@@ -1,4 +1,4 @@
-<?php
+<?php 
 /**
  * Don't change anything in this file.
  */
@@ -111,6 +111,11 @@ class App
             return $res;
         }
 
+    }
+
+    public function __toString()
+    {
+        return "This is main class of framework";
     }
 
     private function stdin()
