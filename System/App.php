@@ -39,6 +39,9 @@ class App
 
     public function run()
     {
+        if (isset($_SESSION['user']['acl'])) {
+            $this->acl($this->$this->router['controller']);
+        }
         $class = $this->load('controller', $this->router['controller']);
         $action = $this->router['action'];
         $class->setData($this->data);
@@ -126,6 +129,14 @@ class App
         if (file_get_contents('php://input')) {
             $this->data['raw'] = $this->security(json_decode(file_get_contents('php://input'), true));
         }
+    }
+
+    protected function acl($controller)
+    {
+        if (!in_array($controller, $_SESSION['user']['acl']) {
+            return false;
+        }
+        return true;
     }
 
 }
