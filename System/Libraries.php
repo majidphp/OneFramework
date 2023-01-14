@@ -53,5 +53,11 @@ class Libraries
         $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
         $whoops->register();
     }
+
+    public function redis()
+    {
+        Predis\Autoloader::register();
+        return new Predis\Client();
+    }
     
 }

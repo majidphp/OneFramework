@@ -9,6 +9,7 @@ class MainController extends App
     protected $model;
     protected $log;
     protected $errorMsg;
+    protected $cache;
 
     public function __construct()
     {
@@ -17,6 +18,9 @@ class MainController extends App
         $log->pushHandler(new StreamHandler(LOG_FILE, Logger::DEBUG));
         $this->log = $log;
         $this->view = $this->load('libs', 'smarty');
+        if (CACHE === 1) {
+            $this->cache = $this->load('libs', 'redis');
+        }
     }
 
     public function setData($data)

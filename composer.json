@@ -5,7 +5,8 @@
         "monolog/monolog": "^2.3",
         "vlucas/phpdotenv": "^5.3",
         "smarty/smarty": "^4.0",
-        "filp/whoops": "^2.14"
+        "filp/whoops": "^2.14",
+        "predis/predis": "^2.0"
     },
     "autoload": {
         "files": ["Libs/Helpers/ErrorCodes.php"]

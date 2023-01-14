@@ -17,3 +17,4 @@ define('LOG_NAME',' framework');
 define('LIBS_DIR', 'Libs/');
 define('DOTENV', '.env');
 define('DEBUG', true);
+define('CACHE', 1);
