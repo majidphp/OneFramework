@@ -18,3 +18,4 @@ define('LIBS_DIR', 'Libs/');
 define('DOTENV', '.env');
 define('DEBUG', true);
 define('CACHE', 1);
+define('CLI_PATH', $_SERVER["PWD"].'/');
