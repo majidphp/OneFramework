@@ -33,6 +33,10 @@ class App
                 include_once CONTROLLERS.$this->router['controller'].'Controller.php';
                 return new $file;
                 break;
+            case 'library':
+                include_once CUSTOM_LIBRARY_DIR.$file.'/'.$file.'.php';
+                return new $file;
+                break;
         }
 
     }
@@ -133,7 +137,7 @@ class App
 
     protected function acl($controller)
     {
-        if (!in_array($controller, $_SESSION['user']['acl']) {
+        if (!in_array($controller, $_SESSION['user']['acl'])) {
             return false;
         }
         return true;
