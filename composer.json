@@ -6,7 +6,8 @@
         "vlucas/phpdotenv": "^5.3",
         "smarty/smarty": "^4.0",
         "filp/whoops": "^2.14",
-        "predis/predis": "^2.0"
+        "predis/predis": "^2.0",
+        "league/flysystem": "^3.12"
     },
     "autoload": {
         "files": ["Libs/Helpers/ErrorCodes.php"]
