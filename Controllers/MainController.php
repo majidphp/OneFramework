@@ -14,13 +14,13 @@ class MainController extends App
     public function __construct()
     {
         $this->errorMsg = ErrorMsgs();
-        $log = new Logger(LOG_NAME);
-        $log->pushHandler(new StreamHandler(LOG_FILE, Logger::DEBUG));
-        $this->log = $log;
-        $this->view = $this->load('libs', 'smarty');
-        if (CACHE === 1) {
-            $this->cache = $this->load('libs', 'redis');
+        if (LOG === 1) {
+            $log = new Logger(LOG_NAME);
+            $log->pushHandler(new StreamHandler(LOG_FILE, Logger::DEBUG));
+            $this->log = $log;
         }
+        if (VIEW === 1) $this->view = $this->load('libs', 'smarty');
+        if (CACHE === 1) $this->cache = $this->load('libs', 'redis');
     }
 
     public function setData($data)

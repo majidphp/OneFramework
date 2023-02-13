@@ -54,10 +54,16 @@ class Libraries
         $whoops->register();
     }
 
-    public function redis()
+    public static function redis()
     {
         Predis\Autoloader::register();
-        return new Predis\Client();
+        return new Predis\Client([
+            'scheme' => REDIS_SCHEME,
+            'host'   => REDIS_HOST ,
+            'port'   => REDIS_PORT,
+            'username' => $_ENV['REDIS_USERNAME'],
+            'password' => $_ENV['REDIS_PASSWORD']
+        ]);
     }
     
 }
