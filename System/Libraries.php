@@ -4,13 +4,17 @@
  */
 use Medoo\Medoo;
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 class Libraries
 {       
     public static function db()
     {
         return new Medoo([
             'database_type' => DB_TYPE,
-            'database_name' => $_ENV['DB_NAME'],
+            'database_name' => DB_NAME,
             'server' => DB_HOST,
             'username' => $_ENV['DB_USERNAME'],
             'password' => $_ENV['DB_PASSWORD'],
@@ -64,6 +68,11 @@ class Libraries
             'username' => $_ENV['REDIS_USERNAME'],
             'password' => $_ENV['REDIS_PASSWORD']
         ]);
+    }
+
+    public static function mailer()
+    {
+        return new PHPMailer(true);
     }
     
 }

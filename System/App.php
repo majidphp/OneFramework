@@ -30,7 +30,7 @@ class App
                 break;
             case 'controller':
                 include_once CONTROLLERS.'MainController.php';
-                include_once CONTROLLERS.$this->router['controller'].'Controller.php';
+                include_once CONTROLLERS.$file.'Controller.php';
                 return new $file;
                 break;
             case 'library':
@@ -48,7 +48,7 @@ class App
         }
         $class = $this->load('controller', $this->router['controller']);
         $action = $this->router['action'];
-        $class->setData($this->data);
+        $class->setData($this->data, $this->router['params']);
         $class->$action();
     }
 
@@ -82,18 +82,19 @@ class App
 
     private function security($data)
     {
+        $res = [];
         if(is_array ($data)) {
             foreach ($data as $key => $val) {
                 if (is_array($val)) {
                     $i = 0;
                     foreach ($val as $k => $v) {
-                        $res[$k] = htmlspecialchars($v, double_encode: false);
-                        $res[$k] = trim($res[$k]);
+                        $res[$key][$k] = htmlspecialchars($v, double_encode: false);
+                        $res[$key][$k] = trim($res[$key][$k]);
                         // $res = stripslashes($res);
-                        $res[$k] = strip_tags($res[$k]);
-                        $res[$k] = filter_var($res[$k], FILTER_SANITIZE_STRING);
-                        $res[$k] = filter_var($res[$k],FILTER_SANITIZE_STRIPPED);
-                        $res[$k] = filter_var($res[$k],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                        $res[$key][$k] = strip_tags($res[$key][$k]);
+                        $res[$key][$k] = filter_var($res[$key][$k], FILTER_SANITIZE_STRING);
+                        $res[$key][$k] = filter_var($res[$key][$k],FILTER_SANITIZE_STRIPPED);
+                        $res[$key][$k] = filter_var($res[$key][$k],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                         $i++;
                     }
                 } else {

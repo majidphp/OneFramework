@@ -2,7 +2,7 @@
 /**
  * Load config files
  */
-foreach(glob("Config/*.php") as $file){
+foreach(glob("../Config/*.php") as $file){
     include_once $file;
 }
 /**
@@ -12,4 +12,8 @@ include_once SYSTEM_DIR.'App.php';
 /**
  * Load packages
  */
-include_once CLI_PATH.'vendor/autoload.php';
+include_once ROOT.'/vendor/autoload.php';
+/** 
+ * Init and application
+ */
+$App = new App;

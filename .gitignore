@@ -1,3 +1,4 @@
 vendor/
 composer.lock
 Views/template_c
+Private/
