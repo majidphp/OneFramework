@@ -23,14 +23,14 @@ class App
                 return Libraries::$file();
                 break;
             case 'model':
-                include_once MODELS_DIR.'MainModel.php';
-                include_once MODELS_DIR.$file.'Model.php';
+                include_once MODELS_DIR.'Main.php';
+                include_once MODELS_DIR.$file.'.php';
                 $model = $file.'Model';
                 return new $model;
                 break;
             case 'controller':
-                include_once CONTROLLERS.'MainController.php';
-                include_once CONTROLLERS.$file.'Controller.php';
+                include_once CONTROLLERS.'Main.php';
+                include_once CONTROLLERS.$file.'.php';
                 return new $file;
                 break;
             case 'library':
