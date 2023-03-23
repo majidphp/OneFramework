@@ -18,6 +18,6 @@ define('LOG_NAME',' framework');
 define('LIBS_DIR', 'Libs/');
 define('DOTENV', '.env');
 define('DEBUG', true);
-define('CACHE', 1);
+define('CACHE', 0);
 define('VIEW', 1);
 define('CUSTOM_LIBRARY_DIR', 'Libs/Libraries/');
