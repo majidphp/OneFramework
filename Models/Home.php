@@ -5,4 +5,5 @@ class HomeModel extends MainModel
     {
         return $this->db->get('users', '*', ['id'=>$id]);
     }
+
 }

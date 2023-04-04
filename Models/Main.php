@@ -9,4 +9,9 @@ class MainModel extends App
         $this->db = $this->load('libs', 'db');
     }
 
+    public function get($object, $where)
+    {
+        return $this->db->get($object, '*', [$where['key']=> $where['value']]);
+    }
+
 }
