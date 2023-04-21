@@ -10,8 +10,5 @@
         "league/flysystem": "^3.12",
         "phpmailer/phpmailer": "^6.7",
         "endroid/qr-code": "^4.8"
-    },
-    "autoload": {
-        "files": ["Libs/Helpers/Messages.php"]
     }
 }

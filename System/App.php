@@ -69,7 +69,7 @@ class App
         }
     }
 
-    public function return($res = null, $status = 200, $format = 'json')
+    public function response($res = null, $status = 200, $format = 'json')
     {
         http_response_code($status);
         $this->format($format);
