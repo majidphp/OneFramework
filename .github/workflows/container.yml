@@ -28,6 +28,7 @@ jobs:
           push: true
           tags: majidphp/docker-test:latest
   PHP:
+    needs: docker
     runs-on: ubuntu-latest
 
     steps:
@@ -39,4 +40,4 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            sudo docker run -d -it --name=test majidphp/docker-test:latest
+            ls
