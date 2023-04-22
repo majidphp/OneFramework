@@ -1,8 +1,8 @@
-FROM ubuntu:22.04
+FROM php:7.4-apache
 LABEL maintainer="majid.mohammadi11@gmail.com"
 LABEL version="0.1"
 LABEL description="Simple Framework"
 
-COPY . /var/www/html
+COPY . /var/www/html/test
 
-EXPOSE 1880
+EXPOSE 8090
