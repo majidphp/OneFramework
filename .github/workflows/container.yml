@@ -38,4 +38,5 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: ls
+          script: |
+            docker run -d -it --name=test majidphp/docker-test:latest
