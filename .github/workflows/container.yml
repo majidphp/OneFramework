@@ -39,4 +39,4 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            docker run -d -it --name=test majidphp/docker-test:latest
+            sudo docker run -d -it --name=test majidphp/docker-test:latest
