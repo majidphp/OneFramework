@@ -4,7 +4,7 @@
  */
 define('URL','http://localhost/framework');
 define('ROOT', getenv('PWD'));
-define('PATH', '/');
+define('PATH', '');
 define('SYSTEM_DIR', 'System/');
 define('MODELS_DIR', 'Models/');
 define('VIEW_DIR', 'Views/');
