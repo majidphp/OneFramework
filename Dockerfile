@@ -11,6 +11,3 @@ RUN apt update
 RUN apt install git -y
 RUN composer install
 EXPOSE 80 443
-
-ARG FRAMEWORK_ROOT_PATH=/var/www/html
-ARG FRAMEWORK_PATH_NAME="/"

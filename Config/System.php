@@ -3,7 +3,7 @@
  * System config file
  */
 define('URL','http://localhost/framework');
-define('ROOT', $_ENV['FRAMEWORK_ROOT_PATH']);
+define('ROOT', getenv('PWD'));
 define('PATH', $_ENV['FRAMEWORK_PATH_NAME']);
 define('SYSTEM_DIR', 'System/');
 define('MODELS_DIR', 'Models/');
