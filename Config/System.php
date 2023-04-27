@@ -3,8 +3,8 @@
  * System config file
  */
 define('URL','http://localhost/framework');
-define('ROOT', 'C:\xampp\htdocs\framework/');
-define('PATH', '/framework');
+define('ROOT', $_ENV['FRAMEWORK_ROOT_PATH']);
+define('PATH', $_ENV['FRAMEWORK_PATH_NAME']);
 define('SYSTEM_DIR', 'System/');
 define('MODELS_DIR', 'Models/');
 define('VIEW_DIR', 'Views/');
