@@ -1,0 +1,21 @@
+version: '3'
+services:
+  web:
+    image: majidphp/oneframework
+    ports:
+      - "8080:80"
+    volumes:
+      - "./:/var/www/html"
+    
+  database:
+    image: mysql/mysql-server
+    environment:
+      - "MYSQL_ROOT_PASSWORD=root"
+      - "MYSQL_USER=testuser"
+      - "MYSQL_PASSWORD=admin123"
+      - "MYSQL_DATABASE=backend"
+    volumes:
+      - oneframework:/var/lib/mysql
+    
+volumes:
+  oneframework:
