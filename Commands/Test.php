@@ -1,5 +1,5 @@
 <?php
-function main()
+function main($name)
 {
-    echo "This is test command";
+    echo "This is test command $name";
 }

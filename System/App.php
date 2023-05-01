@@ -1,6 +1,6 @@
 <?php 
 /**
- * Don't change anything in this file.
+ * System Main file
  */
 class App 
 {
@@ -10,15 +10,15 @@ class App
     public function init()
     {
         Dotenv\Dotenv::createImmutable(PRIVATE_DIR, DOTENV)->safeLoad();
-        $this->router = $this->load('libs', 'router');
+        $this->router = $this->load('lib', 'router');
         $this->stdin();
-        if (DEBUG) $this->load('libs', 'error');
+        if (DEBUG) $this->load('lib', 'error');
     }
 
     public function load($kind, $file)
     {
         switch ($kind) {
-            case 'libs':
+            case 'lib':
                 include_once SYSTEM_DIR.'Libraries.php';
                 return Libraries::$file();
                 break;
@@ -33,8 +33,8 @@ class App
                 include_once CONTROLLERS.$file.'.php';
                 return new $file;
                 break;
-            case 'library':
-                include_once CUSTOM_LIBRARY_DIR.$file.'/'.$file.'.php';
+            case 'usrlib':
+                include_once USR_LIBRARY_DIR.$file.'/'.$file.'.php';
                 return new $file;
                 break;
         }

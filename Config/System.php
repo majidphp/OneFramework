@@ -20,4 +20,4 @@ define('DOTENV', '.env');
 define('DEBUG', true);
 define('CACHE', 0);
 define('VIEW', 1);
-define('CUSTOM_LIBRARY_DIR', 'Libs/Libraries/');
+define('USR_LIBRARY_DIR', 'Libs/Libraries/');

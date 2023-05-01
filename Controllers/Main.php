@@ -18,8 +18,8 @@ class MainController extends App
             $log->pushHandler(new StreamHandler(LOG_FILE, Logger::DEBUG));
             $this->log = $log;
         }
-        if (VIEW === 1) $this->view = $this->load('libs', 'smarty');
-        if (CACHE === 1) $this->cache = $this->load('libs', 'redis');
+        if (VIEW === 1) $this->view = $this->load('lib', 'smarty');
+        if (CACHE === 1) $this->cache = $this->load('lib', 'redis');
     }
 
     public function setData($data, $params = false)
@@ -60,7 +60,7 @@ class MainController extends App
 
     protected function mailer($to, $subject, $body, $attachment = false)
     {
-        $mail = $this->load('libs', 'mailer');
+        $mail = $this->load('lib', 'mailer');
         $mail->SMTPDebug = SMTP::DEBUG_SERVER;
         $mail->isSMTP();
         $mail->Host       = EMAIL_HOST;
