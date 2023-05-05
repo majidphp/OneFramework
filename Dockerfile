@@ -1,13 +1,15 @@
-FROM php:8.2-apache
+FROM php:8.0.5-fpm-alpine
 LABEL maintainer="majid.mohammadi11@gmail.com"
 LABEL version="0.1"
 LABEL description="Simple Framework"
 
 WORKDIR /var/www/html
 COPY ./ ./
-RUN a2enmod rewrite
+# RUN a2enmod rewrite
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
-RUN apt update
-RUN apt install git -y
+RUN apk update
+RUN apk upgrade
+RUN apk add git
 RUN composer install
 EXPOSE 80 443
+CMD sh server.sh cron

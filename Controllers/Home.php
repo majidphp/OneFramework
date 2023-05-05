@@ -12,4 +12,9 @@ class Home extends MainController
         // $this->cache->set('name', 'Te4st');
         // echo $this->cache->get('name');
     }
+
+    public function Test()
+    {
+        echo "This is a test string";
+    }
 }

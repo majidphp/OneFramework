@@ -3,7 +3,7 @@
 $crons = [
     ['Title'=> 'Test', 'File'=> 'Test', 'Time'=> '5', 'NextRun'=> null],
 ];
-include_once 'MainCron.php';
+include_once 'Main.php';
 while (true) {
     $i = 0;
     foreach ($crons as $cron) {
