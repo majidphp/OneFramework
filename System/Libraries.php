@@ -1,6 +1,6 @@
 <?php
 /**
- * Load libraries that you need
+ * System libraries
  */
 use Medoo\Medoo;
 
