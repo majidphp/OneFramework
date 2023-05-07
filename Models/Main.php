@@ -6,7 +6,7 @@ class MainModel extends App
     
     public function __construct()
     {
-        $this->db = $this->load('libs', 'db');
+        $this->db = $this->load('syslibs', 'db');
     }
 
     public function get($object, $where)

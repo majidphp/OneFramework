@@ -10,15 +10,15 @@ class App
     public function init()
     {
         Dotenv\Dotenv::createImmutable(PRIVATE_DIR, DOTENV)->safeLoad();
-        $this->router = $this->load('lib', 'router');
+        $this->router = $this->load('syslib', 'router');
         $this->stdin();
-        if (DEBUG) $this->load('lib', 'error');
+        if (DEBUG) $this->load('syslib', 'error');
     }
 
     public function load($kind, $file)
     {
         switch ($kind) {
-            case 'lib':
+            case 'syslib':
                 include_once SYSTEM_DIR.'Libraries.php';
                 return Libraries::$file();
                 break;
