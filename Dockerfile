@@ -11,5 +11,5 @@ RUN apk update
 RUN apk upgrade
 RUN apk add git
 RUN composer install
-EXPOSE 80 443
+EXPOSE 80
 CMD sh server.sh cron
