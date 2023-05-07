@@ -14,3 +14,6 @@ To use this framework
 - run `composer install`
 - using apache "http://YOUR_SERVER/"
 - using php Built-in web server "php -S 0.0.0.0:80" OR "bash server.sh"
+
+If you like to use Docker container ``` docker run -d --name=oneframework -p 80:80 majidphp/oneframework ```
+OR use docker composer ``` docker-compose up -d ```
