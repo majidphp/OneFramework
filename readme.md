@@ -19,7 +19,7 @@ If you like to use Docker container ``` docker run -d --name=oneframework -p 80:
 OR use docker composer ``` docker-compose up -d ```
 
 
-*** Folder stracture ***
+# Folder stracture #
 
 Commands: put your php script, I can run them via CLI
 
