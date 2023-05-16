@@ -1,6 +1,6 @@
 <?php
 use Aws\S3\S3Client;
-include_once './Config.php';
+include_once 'Config.php';
 
 class S3
 {
@@ -18,18 +18,24 @@ class S3
                 'secret' => S3_SECRET,
             ],
         ]);
-        if ($client == false) {
-            echo 'S3 login invalid';
-            die;
-        }
         $this->client = $client;
     }
 
-    public function Upload($bucket, $path, $file)
+    public function Buckets()
     {
+        $spaces = $this->client->listBuckets();
+        foreach ($spaces['Buckets'] as $space){
+            echo $space['Name']."\n";
+        }
+
+    }
+
+    public function Upload($bucket, $file, $destinationPath)
+    {
+        $fileInfo = pathinfo($file);
         $result = $this->client->putObject([
             'Bucket' => $bucket,
-            'Key'    => pathinfo($file)['filename'],
+            'Key'    => $destinationPath.'/'.$fileInfo['filename'].'.'.$fileInfo['extension'],
             'Body'   => fopen($file, 'rb'),
             'ACL'    => 'public-read'
        ]);

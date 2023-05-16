@@ -11,6 +11,8 @@ class Home extends MainController
         // // test redis cache
         // $this->cache->set('name', 'Te4st');
         // echo $this->cache->get('name');
+        // $s3 = $this->load('usrlib', 'S3')->Upload('gameworld', 'log.txt', 'game-world');
+        // print_r($s3);
     }
 
     public function Test()
