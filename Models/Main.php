@@ -11,9 +11,9 @@ class MainModel extends App
         $this->tableName = $tableName;
     }
 
-    public function get($object, $where)
+    public function get($where)
     {
-        return $this->db->get($object, '*', [$where['key']=> $where['value']]);
+        return $this->db->get($this->tableName, '*', [$where['key']=> $where['value']]);
     }
 
     public function count()
