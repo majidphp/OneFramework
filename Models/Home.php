@@ -10,7 +10,7 @@ class HomeModel extends MainModel
 
     public function selectById($id)
     {
-        return $this->db->get($this->table, '*', ['id'=>$id]);
+        return $this->get(['key'=> 'id', 'value'=> $id]);
     }
 
 }

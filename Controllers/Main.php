@@ -58,7 +58,7 @@ class MainController extends App
         return implode($pass);
     }
 
-    protected function mailer($to, $subject, $body, $attachment = false)
+    protected function mailer($to, $subject, $body, $attachments = false)
     {
         $mail = $this->load('syslib', 'mailer');
         $mail->SMTPDebug = SMTP::DEBUG_SERVER;
@@ -69,15 +69,13 @@ class MainController extends App
         $mail->Password   = $_ENV['MAIL_PASSWORD'];
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port       = EMAIL_PORT;
-        //Recipients
         $mail->setFrom(EMAIL_FROM, 'Mailer');
         $mail->addAddress($to);
-        //Attachments
-        if ($attachment == true) {
-            $mail->addAttachment('/var/tmp/file.tar.gz');
-            $mail->addAttachment('/tmp/image.jpg', 'new.jpg');
+        if ($attachment == true && count($attachments) > 0) {
+            foreach ($attachments as $attachment) {
+                $mail->addAttachment($attachment);
+            }
         }
-        //Content
         $mail->isHTML(true);               
     }
 
