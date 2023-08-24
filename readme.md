@@ -1,4 +1,8 @@
 # Framework
+
+This is a very simple MVC model PHP application. You will able to run it via Docker as well.
+This Framework supports Web URLS, Linux CLI application, Crons easily.
+
 ## Install 
 
 - PHP 8
