@@ -80,46 +80,30 @@ class App
         }
     }
 
-    private function security($data)
+    public function security($data)
     {
-        $res = [];
-        if(is_array ($data)) {
-            foreach ($data as $key => $val) {
-                if (is_array($val)) {
-                    $i = 0;
-                    foreach ($val as $k => $v) {
-                        $res[$key][$k] = htmlspecialchars($v, double_encode: false);
-                        $res[$key][$k] = trim($res[$key][$k]);
-                        // $res = stripslashes($res);
-                        $res[$key][$k] = strip_tags($res[$key][$k]);
-                        $res[$key][$k] = filter_var($res[$key][$k], FILTER_SANITIZE_STRING);
-                        $res[$key][$k] = filter_var($res[$key][$k],FILTER_SANITIZE_STRIPPED);
-                        $res[$key][$k] = filter_var($res[$key][$k],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-                        $i++;
-                    }
-                } else {
-                    $res[$key] = htmlspecialchars($val, double_encode: false);
-                    $res[$key] = trim($val);
-                    // $res = stripslashes($res);
-                    $res[$key] = strip_tags($val);
-                    $res[$key] = filter_var($val, FILTER_SANITIZE_STRING);
-                    $res[$key] = filter_var($val,FILTER_SANITIZE_STRIPPED);
-                    $res[$key] = filter_var($val,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-                }
-            }
-            return $res;
+        if (is_array($data)) {
+            $res = [];
+            array_walk_recursive($data, function($item, $key) use(&$res) {
+                $filter = htmlspecialchars($item, double_encode: false);
+                $filter = trim($filter);
+                $filter = strip_tags($filter);
+                $filter = filter_var($filter, FILTER_SANITIZE_STRING);
+                $filter = filter_var($filter,FILTER_SANITIZE_STRIPPED);
+                $filter = filter_var($filter,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $res[] = $filter;
+            });
+        } else {
+            $res = '';
+            $filter = htmlspecialchars($data, double_encode: false);
+            $filter = trim($filter);
+            $filter = strip_tags($filter);
+            $filter = filter_var($filter, FILTER_SANITIZE_STRING);
+            $filter = filter_var($filter,FILTER_SANITIZE_STRIPPED);
+            $filter = filter_var($filter,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $res = $filter;
         }
-        else {
-            $res = htmlspecialchars($data, double_encode: false);
-            $res = trim($res);
-            // $res = stripslashes($res);
-            $res = strip_tags($res);
-            $res = filter_var($res, FILTER_SANITIZE_STRING);
-            $res = filter_var($res,FILTER_SANITIZE_STRIPPED);
-            $res = filter_var($res,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            return $res;
-        }
-
+        return $res;
     }
 
     public function __toString()

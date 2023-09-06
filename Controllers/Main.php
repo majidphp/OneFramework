@@ -18,6 +18,7 @@ class MainController extends App
             $log->pushHandler(new StreamHandler(LOG_FILE, Logger::DEBUG));
             $this->log = $log;
         }
+        Dotenv\Dotenv::createImmutable(PRIVATE_DIR, DOTENV)->safeLoad();
         if (VIEW === 1) $this->view = $this->load('syslib', 'smarty');
         if (CACHE === 1) $this->cache = $this->load('syslib', 'redis');
     }
