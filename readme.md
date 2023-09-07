@@ -25,17 +25,17 @@ OR use docker composer ``` docker-compose up -d ```
 
 # Folder stracture #
 
-Commands: put your php script, I can run them via CLI
+Commands: put your php script then run via cli
 
 Config: all defined variables
 
-Controllers: Web app class files
+Controllers: Web(http) app class files
 
 Crons: put your cron files and modify Crons/index.php $crons array
 
 Libs: user library files (Each one must be a folder)
 
-Models: Classes connected to database
+Models: classes work with database
 
 Private: put your env files or everythings you don't want show in web (protected by .htaccess file)
 
